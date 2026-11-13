@@ -43,11 +43,26 @@
   pixKeyTypeSelect.addEventListener("change", updatePixKeyHint);
   updatePixKeyHint();
 
+  const SLUG_MIN_LENGTH = 3;
+
   function updateSlugPreview() {
     const value = slugInput.value.trim().toLowerCase();
-    slugPreview.textContent = value
-      ? `Sua página vai ficar em: /w/${value}`
-      : "Sua página vai ficar em: /w/<endereço>";
+    if (!value) {
+      slugPreview.textContent = "Sua página vai ficar em: /w/<endereço>";
+      slugPreview.classList.remove("hint-warning");
+      return;
+    }
+
+    if (value.length < SLUG_MIN_LENGTH) {
+      const missing = SLUG_MIN_LENGTH - value.length;
+      slugPreview.textContent =
+        `Faltam ${missing} caractere${missing > 1 ? "s" : ""} (mínimo ${SLUG_MIN_LENGTH}).`;
+      slugPreview.classList.add("hint-warning");
+      return;
+    }
+
+    slugPreview.textContent = `Sua página vai ficar em: /w/${value}`;
+    slugPreview.classList.remove("hint-warning");
   }
 
   slugInput.addEventListener("input", updateSlugPreview);
@@ -118,6 +133,13 @@
     event.preventDefault();
     hideError();
 
+    const slugValue = slugInput.value.trim().toLowerCase();
+    if (slugValue.length < SLUG_MIN_LENGTH) {
+      showError(`O endereço da página deve ter pelo menos ${SLUG_MIN_LENGTH} caracteres.`);
+      slugInput.focus();
+      return;
+    }
+
     const amounts = collectAmounts();
     if (amounts.length < MIN_AMOUNTS) {
       showError("Informe pelo menos um valor sugerido de gorjeta.");
@@ -125,7 +147,7 @@
     }
 
     const payload = {
-      slug: slugInput.value.trim().toLowerCase(),
+      slug: slugValue,
       displayName: document.getElementById("displayName").value.trim(),
       pixKey: pixKeyInput.value.trim(),
       pixKeyType: pixKeyTypeSelect.value,
