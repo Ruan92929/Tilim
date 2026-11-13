@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilim — crie sua página de gorjeta Pix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name">tilim</span>
+    </div>
+
+    <div class="card">
+      <h1>Crie sua página de gorjeta</h1>
+      <p class="subtitle">
+        Preencha seus dados e ganhe uma página com QR Code Pix pronta pra
+        imprimir ou mostrar no celular. O dinheiro vai direto pra sua conta
+        — a Tilim nunca encosta nele.
+      </p>
+
+      <form id="signup-form" novalidate>
+        <label for="displayName">Seu nome
+          <input type="text" id="displayName" name="displayName" maxlength="60" required
+                 placeholder="Ex: João Garçom" autocomplete="name" />
+        </label>
+
+        <label for="slug">Endereço da sua página
+          <input type="text" id="slug" name="slug" maxlength="32" required
+                 placeholder="Ex: joao-garcom" autocomplete="off" />
+          <span class="hint" id="slug-preview">Sua página vai ficar em: /w/&lt;endereço&gt;</span>
+        </label>
+
+        <label for="pixKeyType">Tipo da sua chave Pix
+          <select id="pixKeyType" name="pixKeyType" required>
+            <option value="Email" selected>E-mail</option>
+            <option value="Telefone">Telefone</option>
+            <option value="Cpf">CPF</option>
+            <option value="Cnpj">CNPJ</option>
+            <option value="Aleatoria">Chave aleatória</option>
+          </select>
+        </label>
+
+        <label for="pixKey">Sua chave Pix
+          <input type="text" id="pixKey" name="pixKey" required
+                 placeholder="joao@example.com" autocomplete="off" />
+          <span class="hint" id="pixKey-hint">Digite no mesmo formato que aparece no seu app do banco.</span>
+        </label>
+
+        <label for="city">Sua cidade
+          <input type="text" id="city" name="city" maxlength="60" required
+                 placeholder="Ex: Sao Paulo" autocomplete="address-level2" />
+        </label>
+
+        <label>Valores sugeridos de gorjeta
+          <span class="hint">Pelo menos 1, no máximo 6 — aparecem como botões na sua página.</span>
+        </label>
+        <div class="amounts-list" id="amounts-list"></div>
+        <button type="button" class="link-btn" id="add-amount">+ adicionar outro valor</button>
+
+        <label for="thankYouMessage">Mensagem de agradecimento <span class="hint" style="display:inline">(opcional)</span>
+          <textarea id="thankYouMessage" name="thankYouMessage" maxlength="140"
+                    placeholder="Ex: Valeu pela gorjeta!"></textarea>
+          <span class="char-counter"><span id="message-count">0</span>/140</span>
+        </label>
+
+        <div id="form-alert" class="alert alert-error hidden" role="alert"></div>
+
+        <button type="submit" class="primary-btn" id="submit-btn">Criar minha página</button>
+      </form>
+
+      <div id="success-view" class="hidden">
+        <div class="alert alert-success">Sua página foi criada!</div>
+        <p>Ela já está pronta em:</p>
+        <p><strong id="success-link"></strong></p>
+        <a id="success-link-anchor" class="primary-btn" style="display:block; text-align:center; text-decoration:none;">
+          Ver minha página
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/signup.js"></script>
+</body>
+</html>

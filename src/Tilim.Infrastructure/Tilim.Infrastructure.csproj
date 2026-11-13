@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Alinhado ao .NET 9 / EF Core 9, que é o que seu Visual Studio e SDK
+      instalados suportam (seu primeiro build acusou SDK 9.0.102 e pediu
+      Visual Studio 17.16+ para .NET 10 — por isso o projeto ficou em 9.0).
+      Se você atualizar o Visual Studio e o SDK para .NET 10 depois, é só
+      trocar net9.0 → net10.0 e essas versões → 10.0.0 de volta.
+    -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
+    <!--
+      Só para "Database:Provider": "Sqlite" em appsettings.Development.json
+      — deixa testar o projeto local sem precisar instalar Docker/Postgres.
+      Produção continua em Postgres (Npgsql, acima); ver DependencyInjection.cs.
+    -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tilim.Application\Tilim.Application.csproj" />
+  </ItemGroup>
+
+</Project>

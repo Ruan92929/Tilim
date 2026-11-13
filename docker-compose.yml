@@ -1,0 +1,17 @@
+# Só para desenvolvimento local: sobe um PostgreSQL com os mesmos dados
+# que a ConnectionStrings:Default do appsettings.json espera.
+#   docker compose up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: tilim
+      POSTGRES_USER: tilim
+      POSTGRES_PASSWORD: changeme-use-user-secrets-or-env-var
+    ports:
+      - "5432:5432"
+    volumes:
+      - tilim-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  tilim-postgres-data:

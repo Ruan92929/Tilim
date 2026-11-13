@@ -1,0 +1,18 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+
+## IDE
+.vs/
+.vscode/
+*.rider.user
+
+## Test results
+TestResults/
+coverage/
+
+## Local secrets — never commit a real connection string or API key
+*.env
+appsettings.*.local.json

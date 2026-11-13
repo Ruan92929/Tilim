@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilim — página de gorjeta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="brand print-hide">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name">tilim</span>
+    </div>
+
+    <div class="card public-card" id="card">
+      <div class="state-message" id="loading-state">Carregando página...</div>
+    </div>
+  </div>
+
+  <div class="qr-modal-overlay hidden print-hide" id="qr-modal-overlay">
+    <div class="qr-modal">
+      <button class="qr-modal-close" id="qr-modal-close" type="button" aria-label="Fechar">×</button>
+      <img id="qr-modal-img" alt="QR Code Pix ampliado" />
+      <div class="qr-modal-actions">
+        <button class="secondary-btn" id="qr-modal-print" type="button">Imprimir</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/public-page.js"></script>
+</body>
+</html>

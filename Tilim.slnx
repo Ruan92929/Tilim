@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Tilim.Api/Tilim.Api.csproj" />
+    <Project Path="src/Tilim.Application/Tilim.Application.csproj" />
+    <Project Path="src/Tilim.Domain/Tilim.Domain.csproj" />
+    <Project Path="src/Tilim.Infrastructure/Tilim.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Tilim.Api.Tests/Tilim.Api.Tests.csproj" />
+    <Project Path="tests/Tilim.Application.Tests/Tilim.Application.Tests.csproj" />
+    <Project Path="tests/Tilim.Domain.Tests/Tilim.Domain.Tests.csproj" />
+    <Project Path="tests/Tilim.Infrastructure.Tests/Tilim.Infrastructure.Tests.csproj" />
+  </Folder>
+</Solution>
