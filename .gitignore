@@ -16,3 +16,6 @@ coverage/
 ## Local secrets — never commit a real connection string or API key
 *.env
 appsettings.*.local.json
+*.db
+*.db-shm
+*.db-wal
