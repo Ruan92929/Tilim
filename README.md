@@ -12,6 +12,8 @@ do profissional**. O dinheiro nunca passa pelo Tilim — isso é uma decisão
 de arquitetura, não uma limitação (veja "O que o Tilim propositalmente não
 faz" mais abaixo).
 
+<img width="1424" height="752" alt="Gemini_Generated_Image_nnsuginnsuginnsu" src="https://github.com/user-attachments/assets/e0e86e62-5a52-489a-a84a-c6357f6a6f9f" />
+
 ## Como funciona, na prática
 
 1. O profissional preenche um formulário simples: nome, cidade, tipo e valor
